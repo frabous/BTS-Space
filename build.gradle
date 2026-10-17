@@ -1,0 +1,147 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net/' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.0.197'
+    }
+    configurations.classpath.resolutionStrategy.activateDependencyLocking()
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+
+version = '1.1.0'
+group = 'fr.frabous.stellar'
+archivesBaseName = 'beyond-the-space'
+sourceCompatibility = targetCompatibility = '1.8'
+
+if (JavaVersion.current() != JavaVersion.VERSION_1_8) {
+    throw new GradleException('Beyond The Space must be built with a Java 8 JDK (set JAVA_HOME).')
+}
+
+minecraft {
+    mappings channel: 'snapshot', version: '20171003-1.12'
+    runs {
+        client {
+            workingDirectory project.file('run-client')
+            property 'forge.logging.console.level', 'info'
+        }
+        server {
+            workingDirectory project.file('run-server')
+            property 'forge.logging.console.level', 'info'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+configurations { legacyForgeRuntime }
+
+dependencyLocking {
+    lockAllConfigurations()
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2864'
+    legacyForgeRuntime 'net.minecraftforge:forge:1.12.2-14.23.5.2864:universal@jar'
+    testImplementation 'junit:junit:4.13.2'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('mcmod.info') {
+        expand version: project.version
+    }
+}
+
+jar {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+    from('LICENSE') {
+        into 'META-INF'
+    }
+    manifest {
+        attributes 'Implementation-Title': 'Beyond The Space',
+                   'Implementation-Version': project.version,
+                   'Implementation-Vendor': 'Frabous'
+    }
+}
+jar.finalizedBy('reobfJar')
+
+// Required by the official 1.12.2 MDK for development launches.
+sourceSets.each {
+    def output = layout.buildDirectory.file("sourcesSets/$it.name").get().asFile
+    it.output.resourcesDir = output
+    it.java.outputDir = output
+}
+
+sourceSets {
+    smoke {
+        java.srcDir 'src/smoke/java'
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    }
+    railgunSmoke {
+        java.srcDir 'src/railgunSmoke/java'
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    }
+}
+
+task verifySides(dependsOn: classes) {
+    description = 'Reject physical-client dependencies in shared and server class files.'
+    doLast {
+        def forbidden = ['net/minecraft/client/', 'org/lwjgl/', 'fr/frabous/stellar/client/']
+        fileTree(sourceSets.main.output.classesDirs.singleFile).matching {
+            include 'fr/frabous/stellar/api/**/*.class', 'fr/frabous/stellar/common/**/*.class'
+        }.each { file ->
+            def constants = new String(file.bytes, 'ISO-8859-1')
+            forbidden.each { reference ->
+                if (constants.contains(reference)) {
+                    throw new GradleException("Physical-client dependency in ${file.name}: ${reference}")
+                }
+            }
+        }
+    }
+}
+check.dependsOn verifySides
+
+// Legacy MergeTool injects a three-value Side enum into the joined dev jar.
+// Forge's network maps require the official two-value enum. Prefer that class
+// for development launches only; never embed this compatibility file in the mod.
+task prepareLegacyRuntime(type: Sync) {
+    from { zipTree(configurations.legacyForgeRuntime.singleFile) }
+    include 'net/minecraftforge/fml/relauncher/Side.class'
+    include 'assets/fml/**', 'assets/forge/**'
+    into "$buildDir/legacy-runtime"
+}
+tasks.matching { it.name == 'runClient' || it.name == 'runServer' }.all {
+    dependsOn prepareLegacyRuntime
+    doFirst { classpath = files("$buildDir/legacy-runtime") + classpath }
+}
+
+task exportDevLaunches(dependsOn: [classes, prepareLegacyRuntime, 'prepareRunServer', 'prepareRunClient']) {
+    description = 'Export standalone development JVM launch manifests for smoke tests.'
+    doLast {
+        ['Server', 'Client'].each { side ->
+            def run = tasks.getByName("run$side")
+            def data = [main: run.main, args: run.args.collect { it.toString() },
+                        jvmArgs: run.jvmArgs.collect { it.toString() },
+                        classpath: (files("$buildDir/legacy-runtime") + run.classpath
+                            + (side == 'Client' && project.hasProperty('smoke') ? sourceSets.smoke.output : files())
+                             + (side == 'Server' && project.hasProperty('railgunSmoke') ? sourceSets.railgunSmoke.output : files())).asPath,
+                        directory: run.workingDir.absolutePath,
+                        environment: run.environment.collectEntries { key, value -> [(key.toString()): value.toString()] }]
+            file("$buildDir/dev-${side.toLowerCase()}-launch.json").text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(data))
+        }
+    }
+}
+if (project.hasProperty('smoke')) exportDevLaunches.dependsOn compileSmokeJava
+if (project.hasProperty('railgunSmoke')) exportDevLaunches.dependsOn compileRailgunSmokeJava

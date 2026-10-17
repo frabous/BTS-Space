@@ -1,0 +1,13 @@
+[
+  {
+    "modid": "stellar",
+    "name": "Beyond The Space",
+    "description": "Unofficial 1.12.2 remake inspired by The Shooting Star. Call down orbital strikes from the SR-1 Remote: Orbital Railgun, Black Hole, Carrier Ops, Supernova and Gravity Inversion, each with its own space cinematic. Terrain remains intact.",
+    "version": "${version}",
+    "mcversion": "1.12.2",
+    "logoFile": "assets/stellar/logo.png",
+    "authorList": ["Frabous"],
+    "credits": "Inspired by The Shooting Star. Not affiliated with its authors; all code, models and sounds are original.",
+    "dependencies": []
+  }
+]

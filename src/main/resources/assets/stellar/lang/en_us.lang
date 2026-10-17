@@ -1,0 +1,15 @@
+itemGroup.stellar=Beyond The Space
+item.stellar.stellar_remote.name=Beyond The Space Remote
+tile.stellar.gungnir_needle.name=Gungnir Needle
+tile.stellar.star_core.name=Star Core
+key.categories.stellar=Beyond The Space
+key.stellar.menu=Open skill menu
+key.stellar.railgun=Select SS-01 Railgun
+key.stellar.blackhole=Select SS-02 Blackhole
+key.stellar.moon_attract=Select SS-03 Carrier Ops (press again: next payload)
+key.stellar.supernova=Select SS-04 Supernova
+key.stellar.gravity_inversion=Select SS-05 Gravity Inversion
+key.stellar.skip=Exit command seat / skip film / toggle future films
+death.attack.stellar.spaghettification=%1$s was spaghettified by a black hole
+death.attack.stellar.inversion=%1$s was torn apart by inverted gravity
+death.attack.stellar.collapse=%1$s was crushed by the gravity collapse

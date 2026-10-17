@@ -1,0 +1,294 @@
+{
+  "cinematic.ascent": {
+    "sounds": [
+      "stellar:ascent"
+    ]
+  },
+  "cinematic.warp": {
+    "sounds": [
+      "stellar:warp"
+    ]
+  },
+  "cinematic.flyby": {
+    "sounds": [
+      "stellar:flyby"
+    ]
+  },
+  "cinematic.charge_loop": {
+    "sounds": [
+      "stellar:charge_loop"
+    ]
+  },
+  "cinematic.electric_snap": {
+    "sounds": [
+      "stellar:electric_snap"
+    ]
+  },
+  "cinematic.cannon_shot": {
+    "sounds": [
+      "stellar:cannon_shot"
+    ]
+  },
+  "cinematic.tunnel": {
+    "sounds": [
+      "stellar:tunnel"
+    ]
+  },
+  "cinematic.descent": {
+    "sounds": [
+      "stellar:descent"
+    ]
+  },
+  "cinematic.impact_hit": {
+    "sounds": [
+      "stellar:impact_hit"
+    ]
+  },
+  "cinematic.beam_loop": {
+    "sounds": [
+      "stellar:beam_loop"
+    ]
+  },
+  "cinematic.rumble_tail": {
+    "sounds": [
+      "stellar:rumble_tail"
+    ]
+  },
+  "cinematic.blackhole_ascent": {
+    "sounds": [
+      "stellar:blackhole_ascent"
+    ]
+  },
+  "cinematic.blackhole_space_bed": {
+    "sounds": [
+      "stellar:blackhole_space_bed"
+    ]
+  },
+  "cinematic.blackhole_reveal": {
+    "sounds": [
+      "stellar:blackhole_reveal"
+    ]
+  },
+  "cinematic.blackhole_accretion": {
+    "sounds": [
+      "stellar:blackhole_accretion"
+    ]
+  },
+  "cinematic.blackhole_tidal": {
+    "sounds": [
+      "stellar:blackhole_tidal"
+    ]
+  },
+  "cinematic.blackhole_horizon": {
+    "sounds": [
+      "stellar:blackhole_horizon"
+    ]
+  },
+  "cinematic.blackhole_return": {
+    "sounds": [
+      "stellar:blackhole_return"
+    ]
+  },
+  "cinematic.moon_attract_cannon_summon": {
+    "sounds": [
+      "stellar:moon_attract_cannon_summon"
+    ]
+  },
+  "cinematic.moon_attract_cannon_deployment": {
+    "sounds": [
+      "stellar:moon_attract_cannon_deployment"
+    ]
+  },
+  "cinematic.moon_attract_gravity_charge": {
+    "sounds": [
+      "stellar:moon_attract_gravity_charge"
+    ]
+  },
+  "cinematic.moon_attract_maximum_charge": {
+    "sounds": [
+      "stellar:moon_attract_maximum_charge"
+    ]
+  },
+  "cinematic.moon_attract_gravity_beam_fire": {
+    "sounds": [
+      "stellar:moon_attract_gravity_beam_fire"
+    ]
+  },
+  "cinematic.moon_attract_moon_gravitational_pull": {
+    "sounds": [
+      "stellar:moon_attract_moon_gravitational_pull"
+    ]
+  },
+  "cinematic.moon_attract_moon_approaching": {
+    "sounds": [
+      "stellar:moon_attract_moon_approaching"
+    ]
+  },
+  "cinematic.moon_attract_atmospheric_entry": {
+    "sounds": [
+      "stellar:moon_attract_atmospheric_entry"
+    ]
+  },
+  "cinematic.moon_attract_moon_fragmentation": {
+    "sounds": [
+      "stellar:moon_attract_moon_fragmentation"
+    ]
+  },
+  "cinematic.moon_attract_pre_impact_tension": {
+    "sounds": [
+      "stellar:moon_attract_pre_impact_tension"
+    ]
+  },
+  "cinematic.moon_attract_moon_impact": {
+    "sounds": [
+      "stellar:moon_attract_moon_impact"
+    ]
+  },
+  "cinematic.moon_attract_shockwave_expansion": {
+    "sounds": [
+      "stellar:moon_attract_shockwave_expansion"
+    ]
+  },
+  "cinematic.moon_attract_debris_rain": {
+    "sounds": [
+      "stellar:moon_attract_debris_rain"
+    ]
+  },
+  "cinematic.moon_attract_aftermath_ambience": {
+    "sounds": [
+      "stellar:moon_attract_aftermath_ambience"
+    ]
+  },
+  "supernova.pressure_hit": {
+    "sounds": ["stellar:supernova_pressure_hit"]
+  },
+  "supernova.pressure_hit_muffled": {
+    "sounds": ["stellar:supernova_pressure_hit_muffled"]
+  },
+  "supernova.rumble_loop": {
+    "sounds": ["stellar:supernova_rumble_loop"]
+  },
+  "supernova.rumble_loop_muffled": {
+    "sounds": ["stellar:supernova_rumble_loop_muffled"]
+  },
+  "supernova.wind_loop": {
+    "sounds": ["stellar:supernova_wind_loop"]
+  },
+  "supernova.wind_loop_muffled": {
+    "sounds": ["stellar:supernova_wind_loop_muffled"]
+  },
+  "remote.open": {
+    "sounds": ["stellar:remote_open"]
+  },
+  "remote.hover": {
+    "sounds": ["stellar:remote_hover"]
+  },
+  "remote.select": {
+    "sounds": ["stellar:remote_select"]
+  },
+  "remote.details": {
+    "sounds": ["stellar:remote_details"]
+  },
+  "remote.close": {
+    "sounds": ["stellar:remote_close"]
+  },
+  "cinematic.carrier_warp_open": {
+    "sounds": ["stellar:carrier_warp_open"]
+  },
+  "cinematic.carrier_warp_collapse": {
+    "sounds": ["stellar:carrier_warp_collapse"]
+  },
+  "cinematic.carrier_brake": {
+    "sounds": ["stellar:carrier_brake"]
+  },
+  "cinematic.carrier_bay_open": {
+    "sounds": ["stellar:carrier_bay_open"]
+  },
+  "cinematic.carrier_clamp_release": {
+    "sounds": ["stellar:carrier_clamp_release"]
+  },
+  "cinematic.carrier_drive_loop": {
+    "sounds": ["stellar:carrier_drive_loop"]
+  },
+  "cinematic.carrier_spool": {
+    "sounds": ["stellar:carrier_spool"]
+  },
+  "cinematic.lance_reentry": {
+    "sounds": ["stellar:lance_reentry"]
+  },
+  "cinematic.lance_retro": {
+    "sounds": ["stellar:lance_retro"]
+  },
+  "cinematic.lance_touchdown": {
+    "sounds": ["stellar:lance_touchdown"]
+  },
+  "cinematic.lance_anchor": {
+    "sounds": ["stellar:lance_anchor"]
+  },
+  "cinematic.lance_unfold": {
+    "sounds": ["stellar:lance_unfold"]
+  },
+  "cinematic.lance_harpoon": {
+    "sounds": ["stellar:lance_harpoon"]
+  },
+  "cinematic.tether_lock": {
+    "sounds": ["stellar:tether_lock"]
+  },
+  "cinematic.tether_strain_loop": {
+    "sounds": ["stellar:tether_strain_loop"]
+  },
+  "cinematic.tether_snap": {
+    "sounds": ["stellar:tether_snap"]
+  },
+  "cinematic.asteroid_sonic_boom": {
+    "sounds": ["stellar:asteroid_sonic_boom"]
+  },
+  "cinematic.broadside_fire": {
+    "sounds": ["stellar:broadside_fire"]
+  },
+  "cinematic.broadside_fire_far": {
+    "sounds": ["stellar:broadside_fire_far"]
+  },
+  "cinematic.broadside_shell_flyby": {
+    "sounds": ["stellar:broadside_shell_flyby"]
+  },
+  "cinematic.broadside_impact": {
+    "sounds": ["stellar:broadside_impact"]
+  },
+  "cinematic.broadside_impact_far": {
+    "sounds": ["stellar:broadside_impact_far"]
+  },
+  "cinematic.broadside_reload": {
+    "sounds": ["stellar:broadside_reload"]
+  },
+  "cinematic.broadside_servo_loop": {
+    "sounds": ["stellar:broadside_servo_loop"]
+  },
+  "cinematic.broadside_bridge_loop": {
+    "sounds": ["stellar:broadside_bridge_loop"]
+  },
+  "cinematic.broadside_board": {
+    "sounds": ["stellar:broadside_board"]
+  },
+  "cinematic.broadside_lock": {
+    "sounds": ["stellar:broadside_lock"]
+  },
+  "cinematic.kinetic_rod_launch": {
+    "sounds": ["stellar:kinetic_rod_launch"]
+  },
+  "cinematic.kinetic_rod_scream": {
+    "sounds": ["stellar:kinetic_rod_scream"]
+  },
+  "cinematic.kinetic_rod_impact": {
+    "sounds": ["stellar:kinetic_rod_impact"]
+  },
+  "cinematic.kinetic_rod_impact_far": {
+    "sounds": ["stellar:kinetic_rod_impact_far"]
+  },
+  "cinematic.kinetic_hammer_fall": {
+    "sounds": ["stellar:kinetic_hammer_fall"]
+  },
+  "cinematic.kinetic_hammer_impact": {
+    "sounds": ["stellar:kinetic_hammer_impact"]
+  }
+}

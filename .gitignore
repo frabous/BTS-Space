@@ -1,0 +1,16 @@
+.cache/
+.gradle/
+build/
+run/
+run-client/
+run-server/
+*.log
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+__pycache__/
+*.pyc
+backups/
+.serena/
